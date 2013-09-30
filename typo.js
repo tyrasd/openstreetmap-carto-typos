@@ -13,7 +13,7 @@ var tags = [];
 m.forEach(function(s) {
   s = s.match(/\[['"]?([a-zA-Z0-9_\-\:]+)['"]?\ ?=\ ?['"]?([a-zA-Z0-9_\-\:]+)['"]?\]/);
   if (s[1] === "feature") {
-    s = s[2].match(/([a-zA-Z0-9\-\:]+)_([a-zA-Z0-9\-\:]+)/);
+    s = s[2].match(/([a-zA-Z0-9\-\:]+)_([a-zA-Z0-9_\-\:]+)/);
   }
   tags.push({key:s[1], val:s[2]});
 });
@@ -37,7 +37,7 @@ db.serialize(function() {
           if (tag.val.match(/^INT/) !== null)
             console.log("INT\t", tag);
           else
-            console.log("???\t", tag);
+            console.log("???\t", "["+tag.key+"="+tag.val+"](http://taginfo.openstreetmap.org/tags/"+encodeURIComponent(tag.key)+"="+encodeURIComponent(tag.val)+")");
         else
           console.log("OK\t", tag);
       });
