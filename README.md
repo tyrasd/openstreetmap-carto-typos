@@ -14,6 +14,10 @@ Installation
   
         wget http://taginfo.openstreetmap.org/download/taginfo-master.db.bz2
         wget http://taginfo.openstreetmap.org/download/taginfo-wiki.db.bz2
+  
+3. unpack taginfo db
+  
+        bzip2 -d *.bz2
 
 Running
 -------
