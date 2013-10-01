@@ -25,6 +25,8 @@ db.serialize(function() {
     if (err) console.log(err);
   });
   tags.forEach(function(tag) {
+    if (tag.key === "zoom")
+      return;
     db.get("select count(*) as cnt from ("+
              "select key,value from interesting_tags where key=$key and value=$value union "+
              "select key,value from suggestions where key=$key and value=$value union "+
