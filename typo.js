@@ -30,7 +30,7 @@ db.serialize(function() {
     db.get("select count(*) as cnt from ("+
              //"select key,value from interesting_tags where key=$key and value=$value union "+
              "select key,value from suggestions where key=$key and value=$value union "+
-             "select key,value from wiki.wikipages_tags where key=$key and value=$value"+
+             "select key,value from wiki.wikipages where key=$key and value=$value and (status<>'r' or (status='r' and body like '%Key:'||$key||'%'))"+
            ")",
            {$key:tag.key, $value:tag.val}, 
       function(err,row) {
