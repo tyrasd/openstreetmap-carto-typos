@@ -24,3 +24,4 @@ Running
 
     node typo.js <path to carto stylesheet.mss>
 
+Database files must be in the directory from which you call the node command
